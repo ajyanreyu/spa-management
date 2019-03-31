@@ -26,7 +26,7 @@ class Service
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $string;
+    private $description;
 
     /**
      * @ORM\Column(type="decimal", nullable=false)
@@ -77,19 +77,19 @@ class Service
      * @return string|null
      * @author Albano Yanes <ajyanreyu@gmail.com>
      */
-    public function getString(): ?string
+    public function getDescription(): ?string
     {
-        return $this->string;
+        return $this->description;
     }
 
     /**
-     * @param string $string
+     * @param string $description
      * @return Service
      * @author Albano Yanes <ajyanreyu@gmail.com>
      */
-    public function setString(string $string): self
+    public function setDescription(string $description): self
     {
-        $this->string = $string;
+        $this->description = $description;
 
         return $this;
     }
