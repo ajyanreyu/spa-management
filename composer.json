@@ -13,10 +13,7 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/maker-bundle": "^1.11",
         "symfony/orm-pack": "^1.0",
-<<<<<<< HEAD
-=======
         "symfony/security-bundle": "4.2.*",
->>>>>>> master
         "symfony/yaml": "4.2.*"
     },
     "config": {

@@ -289,11 +289,6 @@
             "./config/routes.yaml"
         ]
     },
-<<<<<<< HEAD
-    "symfony/security-core": {
-        "version": "v4.2.4"
-    },
-=======
     "symfony/security-bundle": {
         "version": "3.3",
         "recipe": {
@@ -318,7 +313,6 @@
     "symfony/security-http": {
         "version": "v4.2.4"
     },
->>>>>>> master
     "symfony/stopwatch": {
         "version": "v4.2.4"
     },
