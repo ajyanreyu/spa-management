@@ -8,3 +8,9 @@
 /vendor/
 ###< symfony/framework-bundle ###
 /.idea/
+/.env
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
