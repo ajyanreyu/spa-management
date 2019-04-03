@@ -1,0 +1,16 @@
+SPA MANAGEMENT
+=========================================
+This project defines a small conceptual approach of an api rest that manages the different services of a spa, using as framework _Symfony 4.2_
+
+Dependencies:
+-----------------
+* [Doctrine](https://www.doctrine-project.org/)
+* [FosRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle)
+* [JMSSerializeBundle](https://github.com/schmittjoh/JMSSerializerBundle)
+
+Trello
+-------------
+[Spa Management](https://trello.com/b/UU4JsiSN/spa-management)
+
+## Author
+* **Albano Yanes**  - [Github](https://github.com/villanuevand) - [linkedIn](https://www.linkedin.com/in/albano-yanes-reyes-a9aa5168/)

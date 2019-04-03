@@ -30,10 +30,31 @@ class ServiceSchedule
      */
     private $serviceEnd;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Service")
+     * @ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false)
+     */
+    private $service;
+
+    /**
+     * @param int $id
+     * @author Albano Yanes <ajyanreyu@gmail.com>
+     * @return ServiceSchedule
+     */
+    public function setId($id): ServiceSchedule
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
+
 
     /**
      * @return \DateTimeInterface|null
@@ -98,4 +119,22 @@ class ServiceSchedule
 
         return $this;
     }
+
+    /**
+     * @return Service
+     */
+    public function getService(): Service
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param mixed $service
+     */
+    public function setService($service): void
+    {
+        $this->service = $service;
+    }
+
+
 }
