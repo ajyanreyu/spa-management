@@ -30,3 +30,8 @@ services:
         class: App\Service\SpaServicesService
         arguments: ['@doctrine.orm.default_entity_manager']
         public: true
+
+    app.service.spa_booking:
+        class: App\Service\SpaBookingService
+        arguments: ['@doctrine.orm.default_entity_manager']
+        public: true
