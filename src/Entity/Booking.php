@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\This;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -46,6 +47,19 @@ class Booking
      * @ORM\Column(type="decimal", precision=2, scale=0)
      */
     private $price;
+
+    /**
+     * @param int $id
+     * @return Booking
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
 
     public function getId(): ?int
     {

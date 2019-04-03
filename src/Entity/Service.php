@@ -37,11 +37,30 @@ class Service
      * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="service")
      */
     private $bookings;
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ServiceSchedule", mappedBy="service")
+     */
+    private $schedule;
 
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
+        $this->schedule = new ArrayCollection();
     }
+
+    /**
+     * @param int $id
+     * @return Service
+     * @author Albano Yanes <ajyanreyu@gmail.com>
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
 
     /**
      * @return int|null
@@ -150,6 +169,48 @@ class Service
             // set the owning side to null (unless already changed)
             if ($booking->getService() === $this) {
                 $booking->setService(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @@return Collection|ServiceSchedule[]
+     * @author Albano Yanes <ajyanreyu@gmail.com>
+     */
+    public function getServiceSchedule(): Collection
+    {
+        return $this->schedule;
+    }
+
+    /**
+     * @param ServiceSchedule $serviceSchedule
+     * @return Service
+     * @author Albano Yanes <ajyanreyu@gmail.com>
+     */
+    public function addServiceSchedule(ServiceSchedule $serviceSchedule): self
+    {
+        if (!$this->schedule->contains($serviceSchedule)) {
+            $this->schedule[] = $serviceSchedule;
+            $serviceSchedule->setService($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ServiceSchedule $serviceSchedule
+     * @return Service
+     * @author Albano Yanes <ajyanreyu@gmail.com>
+     */
+    public function removeServiceSchedule(ServiceSchedule $serviceSchedule): self
+    {
+        if ($this->schedule->contains($serviceSchedule)) {
+            $this->schedule->removeElement($serviceSchedule);
+            // set the owning side to null (unless already changed)
+            if ($serviceSchedule->getService() === $this) {
+                $serviceSchedule->setService(null);
             }
         }
 
