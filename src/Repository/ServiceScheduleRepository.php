@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Service;
 use App\Entity\ServiceSchedule;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -19,22 +20,29 @@ class ServiceScheduleRepository extends ServiceEntityRepository
         parent::__construct($registry, ServiceSchedule::class);
     }
 
-    // /**
-    //  * @return ServiceSchedule[] Returns an array of ServiceSchedule objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param \DateTime $from
+     * @param \DateTime $to
+     * @param Service $service
+     * @return ServiceSchedule[] | null
+     * @throws \Exception
+     */
+    public function findAllByDateRange($from, $to, $service)
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('service_schedule')
+            ->where('service_schedule.date between :from and :to')
+            ->andWhere('service_schedule.service = :service')
+            ->setParameters(
+                [
+                    'from' => new \DateTime($from->format('Y-m-d') . '00:00:00'),
+                    'to' => new \DateTime($to->format('Y-m-d') . '23:59:00'),
+                    'service' => $service
+                ]
+            )
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?ServiceSchedule

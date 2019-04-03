@@ -14,7 +14,8 @@
         "symfony/maker-bundle": "^1.11",
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+      "ext-http": "*"
     },
     "config": {
         "preferred-install": {
@@ -60,5 +61,8 @@
             "allow-contrib": false,
             "require": "4.2.*"
         }
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "4.2.*"
     }
 }
